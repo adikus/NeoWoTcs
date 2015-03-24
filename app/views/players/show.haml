@@ -1,0 +1,14 @@
+.row.ad-container-300x250
+	#player_header.ad-rest.col-padding-left
+		%h1= @player.name
+
+		%ul.nav.nav-tabs.hidden-xxs.hidden-xs.hidden-sm
+			= render 'nav_tabs', active: :home
+
+	.ad-column
+		.ad.float
+
+.row-fluid.visible-xs.visible-sm
+	.span12
+		%ul.nav.nav-tabs
+			= render 'nav_tabs', active: :home

@@ -17,7 +17,7 @@
 		- @stat_view.player_stats.each_with_index do |row, i|
 			%tr
 				%td= i + 1
-				%td= row[:name]
+				%td= link_to row[:name], player_path(row[:id])
 				- if row[:battles].present?
 					%td= row[:battles]
 					%td= "#{row[:winrate].round(2)} %"

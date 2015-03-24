@@ -14,5 +14,7 @@ Rails.application.routes.draw do
 		get :members, on: :member
 		get :tanks, on: :member
 		get :changes, on: :member
-	end
+  end
+
+  resources :players, only: :show
 end
