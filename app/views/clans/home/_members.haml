@@ -1,0 +1,26 @@
+.stats-switch
+	%strong= @member_view.count
+	= "(#{@member_view.count(:soldier)} Privates and #{@member_view.count(:recruit)} Recruits)"
+
+.list-group.list-group-small
+	%a.list-group-item{href: '#'}
+		%span.hidden-xs Clan Commander
+		%span.visible-xs C:
+		- if @member_view.has_members?
+			%span.badge= @member_view.leader.name
+	%a.list-group-item{href: '#'}
+		%span.hidden-xs Executive Officer(s)
+		%span.visible-xs EO:
+		= members_name_badge(@member_view.vice_leaders)
+	%a.list-group-item{href: '#'}
+		%span.hidden-xs Combat Officers(s)
+		%span.visible-xs CO:
+		= members_name_badge(@member_view.commanders)
+	%a.list-group-item{href: '#'}
+		%span.hidden-xs Intelligence Officer(s)
+		%span.visible-xs IO:
+		= members_name_badge(@member_view.diplomats)
+	%a.list-group-item{href: '#'}
+		%span.hidden-xs  Recruitment Officer(s)
+		%span.visible-xs RO:
+		= members_name_badge(@member_view.recruiters)

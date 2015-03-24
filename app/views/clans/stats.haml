@@ -1,0 +1,30 @@
+- @locals[:title] += ' - Stats'
+= render 'clan_top', active: :stats
+
+%table.table.table-striped.table-hover
+	%thead
+		%tr
+			%th #
+			%th Name
+			%th Battles
+			%th Win rate
+			%th Damage
+			%th Frags
+			%th WN8
+			%th Efficiency
+			%th Updated
+	%tbody
+		- @stat_view.player_stats.each_with_index do |row, i|
+			%tr
+				%td= i + 1
+				%td= row[:name]
+				- if row[:battles].present?
+					%td= row[:battles]
+					%td= "#{row[:winrate].round(2)} %"
+					%td= row[:damage].round(2)
+					%td= row[:frags].round(2)
+					%td= row[:wn8].round(2)
+					%td= row[:efficiency].round(2)
+					%td= "#{distance_of_time_in_words_to_now(row[:created_at])} ago"
+				- else
+					%td{colspan: 6} Loading data...

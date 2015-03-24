@@ -1,0 +1,26 @@
+.stats-switch.js-switch
+	= link_to 'Average', '#clan_home_stats_average_tab', class: 'active'
+	= '/'
+	= link_to 'Overall', '#clan_home_stats_overall_tab'
+
+- stat_colors = {'Battles' => 'danger', 'Winrate' => 'success', 'Damage' => nil, 'WN8' => 'success', 'Efficiency' => 'warning'}
+- stats_average = @stat_view.average_stats
+- stats_overall = @stat_view.overall_stats
+
+.tab-content
+	.tab-pane.active#clan_home_stats_average_tab
+		- stat_colors.each do |name, color|
+			.progress.progress-big
+				.progress-bar{style: "width: #{stats_average[name.downcase.to_sym][:percentile]}%;", class: color.nil? ? '' : "progress-bar-#{color}"}= name
+				.progress-value
+					= number_with_delimiter(stats_average[name.downcase.to_sym][:value].round(2))
+					- if name == 'Winrate'
+						\%
+	.tab-pane#clan_home_stats_overall_tab
+		- stat_colors.each do |name, color|
+			.progress.progress-big
+				.progress-bar{style: "width: #{stats_overall[name.downcase.to_sym][:percentile]}%;", class: color.nil? ? '' : "progress-bar-#{color}"}= name
+				.progress-value
+					= number_with_delimiter(stats_overall[name.downcase.to_sym][:value].round(2))
+					- if name == 'Winrate'
+						\%

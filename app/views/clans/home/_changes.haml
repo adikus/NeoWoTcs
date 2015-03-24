@@ -1,0 +1,13 @@
+.stats-switch.js-switch
+	= link_to 'All', '#', class: 'active'
+	= '/'
+	= link_to 'Joined', '#'
+	= '/'
+	= link_to 'Left', '#'
+
+- last_changes = [{joined: true, player_name: 'player1', changed_at: '01/11/14'},{joined: false, player_name: 'player2', changed_at: '01/11/14'},{joined: true, player_name: 'player3', changed_at: '12/11/14'},{joined: true, player_name: 'player4', changed_at: '15/11/14'},{joined: false, player_name: 'player5', changed_at: '28/11/14'}]
+.list-group.list-group-small
+	- last_changes.reverse.each do |change|
+		%a.list-group-item{href: '#', class: "list-group-item-#{change[:joined] ? 'success' : 'danger'}"}
+			= change[:player_name]
+			%span.badge= change[:changed_at]

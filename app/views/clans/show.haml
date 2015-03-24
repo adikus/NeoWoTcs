@@ -1,0 +1,28 @@
+= render 'clan_top', active: :home
+
+.row.ad-container-300x250
+	#clan_home.ad-rest
+		.row-fluid
+			.col-xs-6
+				%h3
+					Stats
+					%small= link_to 'more', '#'
+				= render 'clans/home/stats'
+			.col-xs-6
+				%h3
+					Members
+					%small= link_to 'more', '#'
+				= render 'clans/home/members'
+		.row-fluid
+			.col-xs-6
+				%h3
+					Tanks
+					%small= link_to 'more', '#'
+				= render 'clans/home/tanks'
+			.col-xs-6
+				%h3
+					Changes
+					%small= link_to 'more', '#'
+				= render 'clans/home/changes'
+	.ad-column.hidden-sm.col-padding
+		= render 'side_column'

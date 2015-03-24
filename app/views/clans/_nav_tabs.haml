@@ -1,0 +1,11 @@
+%li{class: active == :home ? 'active' : ''}
+	= link_to 'Home', @clan
+%li{class: active == :stats ? 'active' : ''}
+	= link_to 'Stats', [:stats, @clan]
+%li{class: active == :members ? 'active' : ''}
+	= link_to 'Members', [:members, @clan]
+%li{class: active == :tanks ? 'active' : ''}
+	= link_to 'Tanks', [:tanks, @clan]
+%li{class: active == :changes ? 'active' : ''}
+	= link_to 'Changes', [:changes, @clan]
+	

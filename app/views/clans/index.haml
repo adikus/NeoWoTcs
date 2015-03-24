@@ -1,0 +1,19 @@
+%h1.text-center Top clans
+
+%table.table.table-striped.table-hover
+	%thead
+		%tr
+			%th #
+			%th Emblem
+			%th Tag
+			%th Name
+	%tbody
+		- @clans.each_with_index do |clan, i|
+			%tr.clickable
+				%td= link_to (@clans.offset + i + 1), clan
+				%td= image_tag Regions.emblem_url(clan.id, '32x32')
+				%td= clan.tag
+				%td= clan.name
+
+.text-center
+	= will_paginate @clans, renderer: BootstrapPagination::Rails

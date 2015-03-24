@@ -1,0 +1,18 @@
+%h1 Results #{params[:search].blank? ? '' : "for '#{params[:search]}'"} in #{current_region_humanized} region
+- if @locals[:error]
+	.alert.alert-danger= @locals[:error]
+- else
+	%table.table.table-striped.table-hover
+		%thead
+			%tr
+				%th #
+				%th Emblem
+				%th Tag
+				%th Name
+		%tbody
+			- @clans.each_with_index do |clan, i|
+				%tr.clickable
+					%td= link_to i, clan_path(clan['clan_id'])
+					%td= image_tag clan['emblems']['medium']
+					%td= clan['abbreviation']
+					%td= clan['name']

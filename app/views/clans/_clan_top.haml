@@ -1,0 +1,20 @@
+.row.ad-container-300x250
+	#clan_header.ad-rest.col-padding-left
+		%h1
+			= image_tag Regions.emblem_url(@clan.id)
+			[#{@clan.tag}]
+		%h2= @clan.name
+		%em= @clan.motto
+
+		%ul.nav.nav-tabs.hidden-xxs.hidden-xs.hidden-sm
+			= render 'nav_tabs', active: active
+
+	.ad-column
+		.ad.float
+		#clan_description_small.visible-sm.col-padding
+			= render 'side_column'
+
+.row-fluid.visible-xs.visible-sm
+	.span12
+		%ul.nav.nav-tabs
+			= render 'nav_tabs', active: active

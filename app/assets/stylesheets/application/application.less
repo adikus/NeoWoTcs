@@ -1,0 +1,133 @@
+@import "bootstrap/variables";
+@import "bootstrap/mixins";
+
+html, body {
+  height: 100%;
+}
+
+#wrap {
+  height: auto !important;
+  margin: 0 auto -40px;
+  min-height: 100%;
+}
+
+#push {
+  height: 70px;
+}
+
+#footer {
+  text-align: center;
+  padding: 10px 0;
+  height: 40px;
+}
+
+.main-search-form {
+  margin-top: 10px;
+  margin-bottom: 50px;
+  .form-group.wide {
+    width: 70%;
+    @media(max-width: @screen-xs-min){
+      width:57%;
+    }
+    input {
+      width: 100%;
+    }
+  }
+}
+
+.main-logo {
+  position: relative;
+  margin-bottom: 30px;
+  .yellow-line-wrapper {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 31px;
+    height: 40px;
+    .yellow-line {
+      background: image-url('yellow-line.png');
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 5000px;
+      height: 40px;
+    }
+  }
+  .logo-text {
+    img {
+      margin: 0 30px 30px;
+      @media(min-width: 600px) and (max-width: 680px){ margin-bottom: 60px; }
+      @media(max-width: 600px){ margin-bottom: 15px; }
+    }
+    font-size: 1.2em;
+    @media(max-width: @screen-xs-min){
+      img {
+        float: none !important;
+        margin-left: 15px;
+      }
+      padding-left: 15px;
+    }
+  }
+}
+
+.news-container {
+  padding-left: 15px;
+  .news-element {
+    margin-bottom: 25px;
+  }
+}
+
+#clan_header {
+  h1 { font-size: 50px; }
+  h2 {
+    font-size: 26px;
+    @media(max-width: @screen-md-max){ font-size: 24px; }
+    @media(max-width: @screen-sm-max){ font-size: 22px; }
+  }
+  @media(min-width: @screen-md-min){ height: 230px; }
+  @media(max-width: @screen-sm-max){ margin-bottom: 30px; }
+  position: relative;;
+  ul {
+    padding: 0 15px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }
+}
+
+#clan_home {
+  min-height: 400px;
+  .progress {
+    margin-bottom: 5px;
+  }
+  .stats-switch {
+    margin-bottom: 15px;
+    a {
+      &.active {
+        text-decoration: underline;
+        text-decoration-style: dashed;
+        -moz-text-decoration-style: dashed;
+        -webkit-text-decoration-style: dashed;
+      }
+      text-decoration-style: dashed;
+      -moz-text-decoration-style: dashed;
+      -webkit-text-decoration-style: dashed;
+    }
+  }
+}
+
+#clan_description_small {
+  margin-bottom: 30px;
+}
+
+.col-padding {
+  padding-left: 15px !important;
+  padding-right: 15px !important;
+}
+.col-padding-left {
+  padding-left: 15px !important;
+}
+.col-padding-right {
+  padding-right: 15px !important;
+}

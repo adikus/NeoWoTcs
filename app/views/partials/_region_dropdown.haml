@@ -1,0 +1,8 @@
+%span.js-region.dropdown.text-left{class: defined?(class_name) ? class_name : ''}
+	%a.btn.dropdown-toggle{href: '#', data:{toggle: 'dropdown'}}
+		%span.value= current_region_humanized
+		%span.caret
+	%ul.dropdown-menu{role: 'menu'}
+		- Regions::SUPPORTED_REGIONS.each do |region_id, region_name|
+			%li{class: region_id == current_region ? 'active' : ''}
+				%a{href: "?region=#{region_id}", data: {region: region_id}}= region_name

@@ -1,0 +1,20 @@
+.stats-switch.js-switch{role: 'tablist' }
+	= link_to '# players', '#clan_home_tanks_player_tab', class: 'active', role: 'tab'
+	= '/'
+	= link_to '# tanks', '#clan_home_tanks_tank_tab', role: 'tab'
+
+.tab-content
+	.tab-pane.active#clan_home_tanks_player_tab
+		- player_count = @clan.members.count
+		- @tank_view.player_counts.each do |name, count|
+			.progress.progress-big
+				.progress-bar{style: "width: #{count.to_f/player_count*100}%;"}
+					%i.tank-icon{class: "tank-icon-#{name}"}
+				.progress-value= count
+	.tab-pane#clan_home_tanks_tank_tab
+		- tank_count = @tank_view.count
+		- @tank_view.tank_counts.each do |name, count|
+			.progress.progress-big
+				.progress-bar{style: "width: #{count.to_f/tank_count*100*2}%;"}
+					%i.tank-icon{class: "tank-icon-#{name}"}
+				.progress-value= count
